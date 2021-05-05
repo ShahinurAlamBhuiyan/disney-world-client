@@ -7,7 +7,7 @@ const Details = () => {
     const { _id } = useParams();
 
     useEffect(() => {
-        fetch('http://localhost:5000/details/' + _id, {
+        fetch('https://disney-world-server.herokuapp.com/details/' + _id, {
             method: 'GET'
         })
             .then(res => res.json())
@@ -44,12 +44,12 @@ const Details = () => {
                         </div>
                     </GroupeWatch>
                 </Controls>
-                
+
                 <SubTitle>
                     {details.subTitle}
                 </SubTitle>
-               
-               <Description>
+
+                <Description>
                     {details.description}
                 </Description>
             </ContentMeta>

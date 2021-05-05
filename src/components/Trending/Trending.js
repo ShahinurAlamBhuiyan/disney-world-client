@@ -4,20 +4,14 @@ import styled from 'styled-components';
 import { UserContext } from '../../App';
 
 const Trending = () => {
-    const [loggedInUser, setLoggedInUser, movieType, setMovieType] = useContext(UserContext);
-    const [allTrending, setAllTrending] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/allTrending')
-            .then(res => res.json())
-            .then(data => setAllTrending(data))
-
-    }, [loggedInUser.name]);
+    const [,,,,,trend]= useContext(UserContext);
+    console.log(trend)
     return (
         <Container>
-            <h4>Trending</h4>
+            <h4>trending</h4>
             <Content>
                 {
-                    allTrending && allTrending.map(trending => (
+                    trend && trend.map(trending => (
                         <Wrap key={trending._id}>
                             <Link to={`/details/`+ trending._id}>
                                 <img src={trending.cardImg} alt={trending.title} />

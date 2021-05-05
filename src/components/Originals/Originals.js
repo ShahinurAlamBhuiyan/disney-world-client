@@ -4,23 +4,17 @@ import styled from 'styled-components';
 import { UserContext } from '../../App';
 
 const Originals = () => {
-    const [loggedInUser, setLoggedInUser, movieType, setMovieType] = useContext(UserContext);
-    const [allOriginals, setAllOriginals] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/allOriginals')
-            .then(res => res.json())
-            .then(data => setAllOriginals(data))
-
-    }, [loggedInUser.name]);
+    const [,,,,origin] = useContext(UserContext);
+    console.log(origin);
     return (
         <Container>
             <h4>Originals</h4>
             <Content>
                 {
-                    allOriginals && allOriginals.map(original => (
-                        <Wrap key={original._id}>
-                            <Link to={`/details/`+ original._id}>
-                                <img src={original.cardImg} alt={original.title} />
+                    origin && origin.map(or => (
+                        <Wrap key={or._id}>
+                            <Link to={`/details/`+ or._id}>
+                                <img src={or.cardImg} alt={or.title} />
                             </Link>
                         </Wrap>
                     ))

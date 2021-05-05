@@ -3,21 +3,14 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { UserContext } from '../../App';
 
-const NewDisney = (props) => {
-    const [ loggedInUser, setLoggedInUser, movieType, setMovieType ] = useContext(UserContext);
-    const [ allNew, setAllNew ] = useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:5000/allNew')
-        .then(res => res.json())
-        .then(data => setAllNew(data))
-        
-    },[loggedInUser.name]);
+const NewDisney = () => {
+    const [,,,newDisney] = useContext(UserContext);
     return (
         <Container>
             <h4>New to Disney+</h4>
             <Content>
                 {
-                    allNew && allNew.map( newData => (
+                    newDisney && newDisney.map( newData => (
                         <Wrap key={newData._id}>
                             <Link to={`/details/`+ newData._id}>
                                 <img src={newData.cardImg} alt={newData.title}/>

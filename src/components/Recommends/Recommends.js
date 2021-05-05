@@ -4,14 +4,7 @@ import styled from 'styled-components';
 import { UserContext } from '../../App';
 
 const Recommends = () => {
-    const [ loggedInUser, setLoggedInUser, movieType, setMovieType ] = useContext(UserContext);
-    const [ recommends, setRecommends ] = useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:5000/allRecommends')
-        .then(res => res.json())
-        .then(data => setRecommends(data))
-        
-    },[loggedInUser.name]);
+    const [,,recommends] = useContext(UserContext);
     return (
         <Container>
             <h4>Recommend for You</h4>
