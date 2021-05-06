@@ -1,17 +1,11 @@
 {
   "hosting": {
-    "site": "disney-world",
+    "site": "dis-ney-world",
     "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   }
 }

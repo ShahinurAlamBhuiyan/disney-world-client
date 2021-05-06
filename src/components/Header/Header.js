@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { UserContext } from '../../App';
 import firebase from "firebase/app";
@@ -45,37 +45,37 @@ const Header = (props) => {
     return (
         <Nav>
             <Logo>
-                <img src="/images/logo.svg" alt="Disney" />
+                <Link to="/home" ><img src="/images/logo.svg" alt="Disney" /></Link>
             </Logo>
             {
                 !loggedInUser.name ?
                     <Login onClick={handleSignIn}>Login</Login>
                     : <>
                         <NavMenu>
-                            <a href="/home" alt="HOME">
+                            <Link to="/home" alt="HOME">
                                 <img src="/images/home-icon.svg" alt="HOME" />
                                 <span>HOME</span>
-                            </a>
-                            <a>
+                            </Link>
+                            <Link to="/home">
                                 <img src="/images/search-icon.svg" alt="SEARCH" />
                                 <span>SEARCH</span>
-                            </a>
-                            <a>
+                            </Link>
+                            <Link to="/home">
                                 <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
                                 <span>WATCHLIST</span>
-                            </a>
-                            <a>
+                            </Link>
+                            <Link to="/home">
                                 <img src="/images/original-icon.svg" alt="ORIGINALS" />
                                 <span>ORIGINALS</span>
-                            </a>
-                            <a>
+                            </Link>
+                            <Link to="/home">
                                 <img src="/images/movie-icon.svg" alt="MOVIES" />
                                 <span>MOVIES</span>
-                            </a>
-                            <a>
+                            </Link>
+                            <Link to="/home">
                                 <img src="/images/series-icon.svg" alt="SERIES" />
                                 <span>SERIES</span>
-                            </a>
+                            </Link>
                         </NavMenu>
                         <SignOut>
                             <UserImg src={loggedInUser.photo} alt={loggedInUser.name} />
